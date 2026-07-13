@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John's API Lab</title>
+</head>
+
+<body>
+
+    <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"><b>API LAB Page:</b>  This page will be used to test APIs.</p>
+    <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Currently testing and trying out Open-Meteo Weather API.  More information at <a href="https://open-meteo.com/" target="_blank">https://open-meteo.com/</a></p>
+    
+    <br></br> 
+
+    <h1 style="font-family: 'Trebuchet MS' ;""> Johnny's International Weather Tracker</h1>
+
+
+    <select id="city">
+    <option value="">--Please choose a city--</option>
+    <option value="51.5074,-0.1278">London</option>
+    <option value="48.8566,2.3522">Paris</option>
+    <option value="40.7128,-74.0060">New York</option>
+    <option value="34.0522,-118.2437">Los Angeles</option>
+    <option value="35.6762,139.6503">Tokyo</option>
+    <option value="40.1040,44.3046">Yerevan</option>
+
+</select>
+    
+    <!--0input id="postId" type="number" min="1" max="100" value="1">-->
+
+  
+
+    
+    <button id="apiButton">Get Weather</button>
+
+    <br></br> 
+
+    <pre id="result">The result will appear here:</pre>
+
+    <script>
+    const button = document.getElementById("apiButton");
+    const result = document.getElementById("result");
+    const cityMenu = document.getElementById("city");
+
+    button.addEventListener("click", async function () {
+        if (cityMenu.value === "") {
+            result.textContent = "Please choose a city.";
+            return;
+        }
+
+        result.textContent = "Loading weather...";
+
+        const [latitude, longitude] = cityMenu.value.split(",");
+        const cityName =
+            cityMenu.options[cityMenu.selectedIndex].text;
+
+        const apiUrl =
+            `https://api.open-meteo.com/v1/forecast` +
+            `?latitude=${latitude}` +
+            `&longitude=${longitude}` +
+            `&current=temperature_2m,apparent_temperature,wind_speed_10m` +
+            `&daily=temperature_2m_max,temperature_2m_min` +
+            `&temperature_unit=fahrenheit` +
+            `&wind_speed_unit=mph` +
+            `&timezone=auto`;
+
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            result.textContent =
+                cityName +
+                "\nLocal time: " +
+                data.current.time.split("T")[1] +       
+                "\n\nCurrent temperature: " +
+                data.current.temperature_2m +
+                " °F" +
+                "\nFeels like: " +
+                data.current.apparent_temperature +
+                " °F" +
+                "\nWind speed: " +
+                data.current.wind_speed_10m +
+                " mph" +
+                "\nToday's high: " +
+                data.daily.temperature_2m_max[0] +
+                " °F" +
+                "\nToday's low: " +
+                data.daily.temperature_2m_min[0] +
+                " °F";
+        } catch (error) {
+            result.textContent =
+                "Weather could not be retrieved.";
+        }
+    });
+</script>
+
+</body>
+</html>
