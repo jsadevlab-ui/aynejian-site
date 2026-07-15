@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="A curated collection of high-quality tools and learning resources for developers."
+  >
+
+  <title>Tech Resources</title>
+
+  <style>
+    :root {
+      --background: #f5f2ec;
+      --background-secondary: #ece8e1;
+
+      --surface: rgba(255, 255, 255, 0.7);
+      --surface-hover: rgba(255, 255, 255, 0.92);
+
+      --border: rgba(70, 63, 55, 0.12);
+      --border-bright: rgba(129, 105, 67, 0.32);
+
+      --text-primary: #24221f;
+      --text-secondary: #68625a;
+      --text-muted: #938b80;
+
+      --champagne: #a8814d;
+      --bronze: #916f46;
+      --plum: #796879;
+      --sage: #68796d;
+      --terracotta: #9a6d5d;
+
+      --radius-large: 24px;
+      --radius-medium: 16px;
+
+      --shadow:
+        0 24px 70px rgba(62, 53, 43, 0.13),
+        0 5px 18px rgba(62, 53, 43, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: var(--text-primary);
+
+      background:
+        radial-gradient(
+          circle at 12% 8%,
+          rgba(195, 162, 111, 0.2),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 88% 15%,
+          rgba(135, 112, 139, 0.17),
+          transparent 31%
+        ),
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(112, 137, 119, 0.13),
+          transparent 36%
+        ),
+        linear-gradient(
+          145deg,
+          #fbfaf7 0%,
+          var(--background) 48%,
+          var(--background-secondary) 100%
+        );
+    }
+
+    body::before {
+      position: fixed;
+      z-index: -2;
+      inset: 0;
+
+      content: "";
+
+      opacity: 0.48;
+
+      background-image:
+        linear-gradient(
+          rgba(73, 66, 58, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(73, 66, 58, 0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 56px 56px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 86%
+        );
+    }
+
+    body::after {
+      position: fixed;
+      z-index: -1;
+      top: -240px;
+      left: 50%;
+
+      width: 850px;
+      height: 560px;
+
+      content: "";
+
+      transform: translateX(-50%);
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(181, 149, 101, 0.15),
+          transparent 68%
+        );
+
+      filter: blur(48px);
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 88px 0 80px;
+    }
+
+    .hero {
+      position: relative;
+      max-width: 850px;
+      margin: 0 auto 64px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      margin-bottom: 24px;
+      padding: 9px 14px;
+
+      color: #6f6558;
+
+      border: 1px solid rgba(145, 111, 70, 0.18);
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.55);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        0 10px 35px rgba(72, 60, 47, 0.07);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: var(--champagne);
+
+      box-shadow:
+        0 0 0 4px rgba(168, 129, 77, 0.1),
+        0 0 18px rgba(168, 129, 77, 0.45);
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size: clamp(3.2rem, 8vw, 6.7rem);
+      font-weight: 760;
+      line-height: 0.94;
+      letter-spacing: -0.065em;
+
+      background:
+        linear-gradient(
+          115deg,
+          #25221f 5%,
+          #4b433a 35%,
+          #8e704b 66%,
+          #756575 94%
+        );
+
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+
+      text-wrap: balance;
+
+      filter:
+        drop-shadow(
+          0 12px 36px rgba(119, 93, 58, 0.1)
+        );
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 28px auto 0;
+
+      color: var(--text-secondary);
+
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      line-height: 1.8;
+      letter-spacing: -0.01em;
+
+      text-wrap: balance;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+    .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 12px;
+
+      color: #766e64;
+
+      border: 1px solid rgba(77, 69, 59, 0.1);
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.42);
+
+      font-size: 0.82rem;
+      font-weight: 600;
+
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    }
+
+    .meta-item svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--champagne);
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+
+      min-height: 350px;
+      padding: 30px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.82),
+          rgba(246, 243, 238, 0.68)
+        );
+
+      box-shadow: var(--shadow);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      transition:
+        transform 260ms ease,
+        border-color 260ms ease,
+        box-shadow 260ms ease,
+        background 260ms ease;
+    }
+
+    .card::before {
+      position: absolute;
+      z-index: -1;
+      top: -120px;
+      right: -100px;
+
+      width: 250px;
+      height: 250px;
+
+      content: "";
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          var(--card-glow),
+          transparent 68%
+        );
+
+      opacity: 0.28;
+      filter: blur(8px);
+
+      transition:
+        opacity 260ms ease,
+        transform 400ms ease;
+    }
+
+    .card::after {
+      position: absolute;
+      top: 0;
+      left: 24px;
+      right: 24px;
+
+      height: 1px;
+      content: "";
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--card-accent),
+          transparent
+        );
+
+      opacity: 0.48;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+
+      border-color:
+        color-mix(
+          in srgb,
+          var(--card-accent) 32%,
+          transparent
+        );
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.96),
+          rgba(249, 247, 243, 0.9)
+        );
+
+      box-shadow:
+        0 34px 85px rgba(69, 56, 43, 0.17),
+        0 8px 25px rgba(69, 56, 43, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+    }
+
+    .card:hover::before {
+      opacity: 0.48;
+      transform: scale(1.12);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+
+      margin-bottom: 24px;
+    }
+
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .icon-box {
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+
+      width: 48px;
+      height: 48px;
+
+      color: var(--card-accent);
+
+      border: 1px solid rgba(77, 69, 59, 0.1);
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(236, 231, 224, 0.7)
+        );
+
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        0 12px 30px rgba(73, 62, 49, 0.09);
+    }
+
+    .icon-box svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.7;
+    }
+
+    .card h2 {
+      margin: 0;
+
+      color: var(--text-primary);
+
+      font-size: 1.16rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    .resource-count {
+      flex: 0 0 auto;
+
+      color: var(--text-muted);
+
+      font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 10px;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .resource-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+
+      min-height: 56px;
+      padding: 13px 15px;
+
+      color: #453f38;
+
+      border: 1px solid transparent;
+      border-radius: var(--radius-medium);
+
+      text-decoration: none;
+
+      transition:
+        color 190ms ease,
+        background 190ms ease,
+        border-color 190ms ease,
+        transform 190ms ease,
+        box-shadow 190ms ease;
+    }
+
+    .resource-link:hover,
+    .resource-link:focus-visible {
+      color: #211f1c;
+
+      border-color: rgba(84, 73, 61, 0.1);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(241, 236, 229, 0.68)
+        );
+
+      box-shadow:
+        0 9px 22px rgba(72, 61, 48, 0.07);
+
+      transform: translateX(4px);
+      outline: none;
+    }
+
+    .resource-name {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      font-size: 0.96rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .resource-marker {
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+      background: var(--card-accent);
+
+      box-shadow:
+        0 0 12px var(--card-accent);
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+
+      width: 28px;
+      height: 28px;
+
+      color: var(--text-muted);
+
+      border: 1px solid rgba(75, 66, 57, 0.1);
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.55);
+
+      transition:
+        color 190ms ease,
+        border-color 190ms ease,
+        transform 190ms ease,
+        background 190ms ease;
+    }
+
+    .arrow svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .resource-link:hover .arrow,
+    .resource-link:focus-visible .arrow {
+      color: var(--card-accent);
+
+      border-color:
+        color-mix(
+          in srgb,
+          var(--card-accent) 30%,
+          transparent
+        );
+
+      background: rgba(255, 255, 255, 0.92);
+      transform: translate(2px, -2px);
+    }
+
+    .web-development {
+      --card-accent: var(--bronze);
+      --card-glow: rgba(145, 111, 70, 0.34);
+    }
+
+    .tools-editors {
+      --card-accent: var(--plum);
+      --card-glow: rgba(121, 104, 121, 0.32);
+    }
+
+    .learning-platforms {
+      --card-accent: var(--sage);
+      --card-glow: rgba(104, 121, 109, 0.32);
+    }
+
+    .apis-data {
+      --card-accent: var(--terracotta);
+      --card-glow: rgba(154, 109, 93, 0.3);
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      margin-top: 48px;
+
+      color: #8b8378;
+
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-line {
+      width: 34px;
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(168, 129, 77, 0.5)
+        );
+    }
+
+    .footer-line:last-child {
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 800px) {
+      .page-shell {
+        width: min(100% - 28px, 650px);
+        padding-top: 60px;
+      }
+
+      .hero {
+        margin-bottom: 45px;
+      }
+
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-shell {
+        width: min(100% - 20px, 650px);
+        padding-top: 44px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 17vw, 4.6rem);
+      }
+
+      .intro {
+        font-size: 0.98rem;
+        line-height: 1.7;
+      }
+
+      .card {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .card-header {
+        align-items: flex-start;
+      }
+
+      .resource-count {
+        margin-top: 7px;
+      }
+
+      .hero-meta {
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page-shell">
+
+    <header class="hero">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Developer Intelligence Library
+      </div>
+
+      <h1>Tech Resources</h1>
+
+      <p class="intro">
+        A carefully curated collection of exceptional tools,
+        documentation and learning platforms built to help
+        developers learn faster and create better.
+      </p>
+
+      <div class="hero-meta">
+        <span class="meta-item">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M20 6 9 17l-5-5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Curated resources
+        </span>
+
+        <span class="meta-item">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 3v18M5 10l7-7 7 7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Free access
+        </span>
+
+        <span class="meta-item">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="9" />
+            <path
+              d="M12 7v5l3 2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Built for clarity
+        </span>
+      </div>
+    </header>
+
+    <section
+      class="resource-grid"
+      aria-label="Technology resource categories"
+    >
+
+      <article class="card web-development">
+        <div class="card-header">
+          <div class="card-title-group">
+            <div class="icon-box">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <h2>Web Development</h2>
+          </div>
+
+          <span class="resource-count">04 ITEMS</span>
+        </div>
+
+        <ul class="resource-list">
+          <li>
+            <a
+              class="resource-link"
+              href="https://css-tricks.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                CSS-Tricks
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://developer.mozilla.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                MDN Web Docs
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://codepen.io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                CodePen
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://jsfiddle.net"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                JSFiddle
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card tools-editors">
+        <div class="card-header">
+          <div class="card-title-group">
+            <div class="icon-box">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14.5 6.5 17.5 9.5M4 20l4.5-1 10-10a2.12 2.12 0 0 0-3-3l-10 10L4 20Z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m13.5 7.5 3 3"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+
+            <h2>Tools &amp; Editors</h2>
+          </div>
+
+          <span class="resource-count">04 ITEMS</span>
+        </div>
+
+        <ul class="resource-list">
+          <li>
+            <a
+              class="resource-link"
+              href="https://code.visualstudio.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                Visual Studio Code
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                GitHub
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://glitch.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                Glitch
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://replit.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                Replit
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card learning-platforms">
+        <div class="card-header">
+          <div class="card-title-group">
+            <div class="icon-box">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="m3 10 9-5 9 5-9 5-9-5Z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7 12.5V17c3 2 7 2 10 0v-4.5M21 10v6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <h2>Learning Platforms</h2>
+          </div>
+
+          <span class="resource-count">04 ITEMS</span>
+        </div>
+
+        <ul class="resource-list">
+          <li>
+            <a
+              class="resource-link"
+              href="https://www.freecodecamp.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                freeCodeCamp
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://www.theodinproject.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                The Odin Project
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://www.w3schools.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                W3Schools
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://www.khanacademy.org/computing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                Khan Academy Computing
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card apis-data">
+        <div class="card-header">
+          <div class="card-title-group">
+            <div class="icon-box">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <ellipse cx="12" cy="5" rx="8" ry="3" />
+                <path
+                  d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <h2>APIs &amp; Data</h2>
+          </div>
+
+          <span class="resource-count">03 ITEMS</span>
+        </div>
+
+        <ul class="resource-list">
+          <li>
+            <a
+              class="resource-link"
+              href="https://open-meteo.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                Open-Meteo
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://api-ninjas.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                API Ninjas
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="resource-link"
+              href="https://publicapis.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resource-name">
+                <span class="resource-marker"></span>
+                Public APIs Directory
+              </span>
+
+              <span class="arrow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 17 17 7M8 7h9v9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </article>
+
+    </section>
+
+    <footer class="footer">
+      <span class="footer-line"></span>
+      Designed for discovery
+      <span class="footer-line"></span>
+    </footer>
+
+  </main>
+</body>
+</html>
