@@ -91,23 +91,23 @@
     }
 
     .hero {
-      padding: 30px 0 120px;
+      padding: 60px 0 120px;
       position: relative;
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+      grid-template-columns: minmax(0, 1fr) 480px;
       gap: 48px;
       width: 100%;
       align-items: start;
-}
+    }
 
     .eyebrow {
       color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.14em;
       font-size: 0.82rem;
-      margin-bottom: 24px;
+      margin-bottom: 10px;
     }
 
     .hero h1 {
@@ -123,7 +123,7 @@
       max-width: 640px;
       color: var(--muted);
       font-size: 1.12rem;
-      margin-bottom: 42px;
+      margin-bottom: 10px;
     }
 
     .hero-actions {
@@ -161,13 +161,17 @@
     }
 
     .profile-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      background: linear-gradient(
+        180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.02)
+      );
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 38px;
       box-shadow: var(--shadow);
-      width: 100%;
-      max-width: 440px;
+      width: 520px;
+      max-width: none;
       justify-self: end;
     }
 
@@ -184,10 +188,13 @@
     .profile-meta {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 1fr;
       gap: 18px;
     }
 
     .meta-item {
+      min-width: 0;
+      height: 100%;
       padding: 18px;
       border-radius: 14px;
       background: rgba(255,255,255,0.03);
@@ -290,20 +297,21 @@
     }
 
     .profile-image {
-  width: 340px;
-  height: 250px;
-  border-radius: 18px;
-  margin-bottom: 28px;
+      width: 100%;
+      aspect-ratio: 340 / 250;
+      height: auto;
+      border-radius: 18px;
+      margin-bottom: 28px;
 
-  background-image:
-    linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.10)),
-    url('Me bust beige grey bkgrnd.jpg');
+      background-image:
+        linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.10)),
+        url('Me bust beige grey bkgrnd.jpg');
 
-  background-size: cover;
-  background-position: left center;
-  background-repeat: no-repeat;
-}
-
+      background-size: cover;
+      background-position: left center;
+      background-repeat: no-repeat;
+    }
+  
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -361,6 +369,7 @@
     @media (min-width: 981px) {
   .profile-card {
     justify-self: end;
+    transform: translateX(40px);
   }
 }
     @media (max-width: 980px) {
@@ -429,29 +438,31 @@
       <div class="profile-card">
         <div class="profile-image"></div>
 
+        
         <div class="profile-meta">
-          <div class="meta-item">
-            <div class="meta-label">Location</div>
-            <div class="meta-value">Bergen County, New Jersey</div>
-          </div>
 
           <div class="meta-item">
-            <div class="meta-label">Expertise</div>
-            <div class="meta-value">Training & Development</div>
+            <div class="meta-label">Location</div>
+            <div class="meta-value">Bergen County, NJ <br>• NYC Metro •</div>
           </div>
 
           <div class="meta-item">
             <div class="meta-label">Experience</div>
-            <div class="meta-value">15+ Years</div>
+            <div class="meta-value">15+ Years in Enterprise L&amp;D</div>
           </div>
 
           <div class="meta-item">
             <div class="meta-label">Industries</div>
-            <div class="meta-value">Finance, Telecommunications, Technology</div>
+            <div class="meta-value">Financial Services<br>Enterprise Technology</div>
           </div>
-        </div>
-      </div>
 
+          <div class="meta-item">
+            <div class="meta-label">Opportunities</div>
+            <div class="meta-value">Full-Time<br>Contract • Consulting</div>
+          </div>
+
+        </div>
+        
     </div>
   </header>
 
@@ -479,22 +490,23 @@
         </div>
 
         <div class="skill-group">
-          <h3>Technology Enablement</h3>
+          <h3>Generative AI & Technology Enablement</h3>
           <ul>
+            <li>Generative AI Training &amp; Adoption</li>
             <li>Enterprise Platform Adoption</li>
             <li>Microsoft 365 / Copilot Training</li>
             <li>Salesforce, ServiceNow & Jira Support</li>
-            <li>Job Aids, User Guides, Quick Reference Cards</li>
           </ul>
         </div>
 
         <div class="skill-group">
-          <h3>User & Stakeholder Support</h3>
+          <h3>Stakeholder &  Business Enablement</h3>
           <ul>
             <li>Executive & Client-Facing Support</li>
             <li>Stakeholder Communication</li>
             <li>Cross-Functional Collaboration</li>
-            <li>Business User Enablement<li>Product Strategy</li>
+            <li>Business User Enablementli>
+            <li>Product Training and Launch Enablement</li>
           </ul>
         </div>
 
@@ -503,6 +515,7 @@
           <ul>
             <li>E-Learning Development</li>
             <li>Camtasia Video Training</li>
+            <li>Job Aids, User Guides, Quick Reference Cards</li>
             <li>SharePoint / Jive / TWiki Training Sites</li>
             <li>Surveys, Forms & Feedback Tools</li>
           </ul>
