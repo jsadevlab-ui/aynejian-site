@@ -400,6 +400,52 @@
         padding: 32px 24px;
       }
     }
+
+.site-note {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    margin: 2rem 0 1.5rem;
+    padding: 1.5rem 1.75rem 1.4rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(8px);
+}
+
+
+.site-note-label {
+    margin: 0 0 0.75rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.site-note p:not(.site-note-label) {
+    margin: 0 0 0.85rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.96rem;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.site-note p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+    .site-note {
+        margin: 1.75rem 1rem;
+        padding: 1.25rem 1.3rem;
+    }
+}
+
   </style>
 </head>
 <body>
@@ -429,11 +475,34 @@
           Experienced Learning & Development professional specializing in learning design and delivery, technology enablement, and generative AI. I design and deliver practical learning experiences that help people understand and adopt enterprise technologies, generative AI, and new ways of working. Partnering with subject matter experts and stakeholders, I create instructor-led and virtual training, eLearning, video, job aids, onboarding programs, and performance support. My work translates complex tools, business processes, and technical concepts into clear, usable learning.
         </p>
 
+      <aside class="site-note" aria-labelledby="site-note-title">
+          <p class="site-note-label" id="site-note-title">
+              A note about this site
+          </p>
+
+          <p>
+              This is a professional profile, but it is also a living example of how
+              I stay engaged with technology beyond the classroom. I am not a software
+              developer; I build and maintain this site to better understand the tools,
+              workflows, and challenges faced by the technical audiences I support as
+              an L&amp;D specialist.
+          </p>
+
+          <p>
+              The site uses HTML, CSS, and JavaScript edited in Visual Studio Code,
+              stored in GitHub, and deployed automatically through Netlify. It also
+              reflects my practical approach to technology adoption: use accessible,
+              widely supported tools—and get the most from what is already
+              available—before adding cost or complexity.
+          </p>
+      </aside>
+
         <div class="hero-actions">
           <!-- <a href="#projects" class="btn btn-primary">View Selected Work</a> --> 
           <a href="#contact" class="btn btn-secondary">Contact Information</a>
         </div> 
       </div>
+
 
       <div class="profile-card">
         <div class="profile-image"></div>
@@ -462,7 +531,9 @@
           </div>
 
         </div>
-        
+
+      </div>
+
     </div>
   </header>
 
