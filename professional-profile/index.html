@@ -172,7 +172,6 @@
       box-shadow: var(--shadow);
       width: 520px;
       max-width: none;
-      justify-self: end;
     }
 
     .profile-image {
@@ -367,11 +366,17 @@
     }
 
     @media (min-width: 981px) {
-  .profile-card {
-    justify-self: end;
+  .profile-column {
+    transform: translateX(40px);
+  }
+}    
+
+@media (min-width: 981px) {
+  .profile-column {
     transform: translateX(40px);
   }
 }
+
     @media (max-width: 980px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -446,6 +451,19 @@
     }
 }
 
+.profile-column {
+    width: 520px;
+    max-width: 100%;
+    justify-self: end;
+}
+
+.profile-card-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+
   </style>
 </head>
 <body>
@@ -490,20 +508,18 @@
 
           <p>
               The site uses HTML, CSS, and JavaScript edited in Visual Studio Code,
-              stored in GitHub, and deployed automatically through Netlify. It also
-              reflects my practical approach to technology adoption: use accessible,
+              stored in GitHub, and deployed automatically through Netlify. I also use generative AI, 
+              including ChatGPT and Copilot, for ideation and troubleshooting while personally building, testing, and maintaining the site.
+              This reflects my practical approach to technology adoption: use accessible,
               widely supported tools—and get the most from what is already
-              available—before adding cost or complexity.
+              available—before adding the costs and complexity of new tools or platforms.
           </p>
       </aside>
 
-        <div class="hero-actions">
-          <!-- <a href="#projects" class="btn btn-primary">View Selected Work</a> --> 
-          <a href="#contact" class="btn btn-secondary">Contact Information</a>
-        </div> 
+        
       </div>
 
-
+<div class="profile-column">
       <div class="profile-card">
         <div class="profile-image"></div>
 
@@ -534,7 +550,12 @@
 
       </div>
 
-    </div>
+  <div class="profile-card-action">
+    <a href="#contact" class="btn btn-secondary">Contact Information</a>
+  </div>
+
+</div> <!-- closes profile-column -->
+  </div>
   </header>
 
   
